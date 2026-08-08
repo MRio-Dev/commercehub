@@ -1,0 +1,16 @@
+version: "3.9"
+
+services:
+  mysql:
+    image: mysql:8.4
+    container_name: inventory-db-container
+    restart: unless-stopped
+
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_DATABASE: inventorydb
+      MYSQL_USER: inventorydb
+      MYSQL_PASSWORD: password
+
+    ports:
+      - "3307:3306"
