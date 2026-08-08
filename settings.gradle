@@ -1,0 +1,5 @@
+rootProject.name = 'commercehub'
+
+include 'order-service'
+include 'inventory-service'
+include 'product-service'
