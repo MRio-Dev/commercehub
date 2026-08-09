@@ -1,7 +1,10 @@
 spring:
+  application:
+    name: product-service
   data:
     mongodb:
-      uri: mongodb://productdb:password@localhost:27017/product-db?authSource=admin
+      uri: mongodb://admin:yourpassword@localhost:27018/productdb?authSource=admin
       auto-index-creation: true
+
 server:
   port: 8081
