@@ -18,7 +18,7 @@ import java.util.UUID;
 @Slf4j
 public class OrderService {
     private final OrderRepository orderRepository;
-    private final WebClient webClient;
+    private final WebClient.Builder webClientBuilder;
 
     public void placeOrder(OrderRequest orderRequest){
             Order order = Order.builder()
@@ -41,9 +41,9 @@ public class OrderService {
                     .build();
 
             log.info("Checking Inventory: {}", inventoryCheckDto.toString());
-            boolean check = Boolean.TRUE.equals(webClient
+            boolean check = Boolean.TRUE.equals(webClientBuilder.build()
                     .method(HttpMethod.GET)
-                    .uri("http://localhost:8083/api/inventory/all")
+                    .uri("http://inventory-service/api/inventory/all")
                     .bodyValue(inventoryCheckDto)
                     .retrieve()
                     .bodyToMono(Boolean.class)
