@@ -11,9 +11,12 @@ spring:
       ddl-auto: update
 
 server:
-  port: 8082
+  port: 0
+  address: 0.0.0.0
 
 eureka:
   client:
     serviceUrl:
       defaultZone: http://localhost:8761/eureka
+  instance:
+    instanceId: ${spring.application.name}:${random.uuid}
